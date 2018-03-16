@@ -44,6 +44,11 @@ void Card::setPhoneNumber(const string &phoneNumber) {
     Card::phoneNumber = phoneNumber;
 }
 
+void Card::show(ostream& os) {
+    os << "firstName: " << this->firstName << " lastName: " << this->lastName << " address: " << this->address
+    << " occupation: " << this->occupation << " phoneNumber: " << this->phoneNumber;
+};
+
 ostream &operator<<(ostream &os, const Card &card) {
     os << "firstName: " << card.firstName << " lastName: " << card.lastName << " address: " << card.address
        << " occupation: " << card.occupation << " phoneNumber: " << card.phoneNumber;

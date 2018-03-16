@@ -15,7 +15,13 @@ class Card {
 
 public:
 
-    Card() {}
+    Card() {};
+    
+    
+    Card(const string& firstName,const string& lastName, const string& occupation,
+         const string& address,const string& phoneNumber) : firstName(firstName),
+    lastName(lastName), occupation(occupation), address(address),
+    phoneNumber(phoneNumber){};
 
     const string &getFirstName() const;
 
@@ -40,6 +46,8 @@ public:
     friend ostream &operator<<(ostream &os, const Card &card);
 
     bool operator<(const Card &rhs) const;
+    
+    void show(ostream& os);
 
 
 private:
