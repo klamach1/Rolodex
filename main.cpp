@@ -36,12 +36,42 @@ int main() {
     rolo.add(Card("Seymour", "Papert", "Lego Professor", "MIT", "555-1111"));
     rolo.add(Card("Fred", "Milton",    "Sales", "12 Freedom Way Nashua, NH", "555-9981"));
     
-    Card currentCard = rolo.getCurrentCard();
-    
     ostream &os = cout;
     
+    Card myCard;
+    
+    Card* currentCard = &myCard;
+    
+    *currentCard = rolo.getCurrentCard();
+    
+    currentCard->show(os);
+    
+    for (int i = 0; i < 25; i++) {
+        *currentCard = rolo.flip();
+        
+        currentCard->show(os);
+    }
+    
+    *currentCard = rolo.remove();
+    
+    cout << endl;
+    
+    currentCard->show(os);
+    
+    *currentCard = rolo.getCurrentCard();
+    currentCard->show(os);
+    cout << endl;
+    
+    for (int i = 0; i < 12; i++) {
+        *currentCard = rolo.flip();
+        
+        currentCard->show(os);
+    }
+    
 
-    currentCard.show(os);
+    
+    rolo.show(os);
+    
     
     
     

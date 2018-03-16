@@ -7,6 +7,7 @@
 //
 
 #include "Rolodex.h"
+#include <list>
 
 Rolodex::Rolodex() {
     cardPos = cardList.begin();
@@ -15,8 +16,48 @@ Rolodex::Rolodex() {
 void Rolodex::add(const Card& myCard) {
     cardList.insert(cardPos, myCard);
     --cardPos;
+    cardList.sort();
 }
 
-Card& Rolodex::getCurrentCard() {
-    return *cardPos;
+Card Rolodex::remove() {
+    Card removedCard;
+    removedCard = *cardPos;
+    ++cardPos;
+    if (cardPos == cardList.end()) {
+        cardPos = cardList.begin();
+    }
+    cardList.remove(removedCard);
+    return removedCard;
+}
+
+const Card Rolodex::getCurrentCard() {
+    return Card(cardPos->getFirstName(),
+                cardPos->getLastName(),
+                cardPos->getOccupation(),
+                cardPos->getAddress(),
+                cardPos->getPhoneNumber());
+}
+
+const Card Rolodex::flip() {
+    
+    ++cardPos;
+    
+    if (cardPos == cardList.end()) {
+        cardPos = cardList.begin();
+    }
+
+    return Card(cardPos->getFirstName(),
+                cardPos->getLastName(),
+                cardPos->getOccupation(),
+                cardPos->getAddress(),
+                cardPos->getPhoneNumber());
+}
+
+void Rolodex::show(ostream& os) {
+    cardList.sort();
+    std::list<Card>::iterator it;
+    for (it=cardList.begin();it!=cardList.end();++it) {
+        it->show(os);
+        os << endl;
+    }
 }

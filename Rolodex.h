@@ -20,11 +20,13 @@ public:
     
     void add(const Card&);
     
-    Card* remove();
+    Card remove();
     
-    Card& getCurrentCard();
+    const Card getCurrentCard();
     
+    const Card flip();
     
+    void show(ostream& os);
     
     
 

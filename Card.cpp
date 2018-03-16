@@ -45,13 +45,15 @@ void Card::setPhoneNumber(const string &phoneNumber) {
 }
 
 void Card::show(ostream& os) {
-    os << "firstName: " << this->firstName << " lastName: " << this->lastName << " address: " << this->address
-    << " occupation: " << this->occupation << " phoneNumber: " << this->phoneNumber;
+    os << *this;
 };
 
 ostream &operator<<(ostream &os, const Card &card) {
-    os << "firstName: " << card.firstName << " lastName: " << card.lastName << " address: " << card.address
-       << " occupation: " << card.occupation << " phoneNumber: " << card.phoneNumber;
+    os << "firstName: " << card.firstName << endl
+    << "lastName: " << card.lastName << endl
+    << "address: " << card.address << endl
+    << "occupation: " << card.occupation << endl
+    << "phoneNumber: " << card.phoneNumber << endl;
     return os;
 }
 
@@ -62,5 +64,15 @@ bool Card::operator<(const Card &rhs) const {
     else {
         return false;
     }
+}
 
+
+bool Card::operator==(const Card &rhs) const {
+    return (lastName == rhs.lastName
+            && firstName == rhs.firstName
+            && address == rhs.address);
+}
+
+bool Card::operator!=(const Card &rhs) const {
+    return !(*this == rhs);
 }

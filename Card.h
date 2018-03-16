@@ -48,8 +48,11 @@ public:
     bool operator<(const Card &rhs) const;
     
     void show(ostream& os);
-
-
+    
+    bool operator==(const Card &rhs) const;
+    
+    bool operator!=(const Card &rhs) const;
+    
 private:
     string firstName;
     string lastName;
