@@ -22,11 +22,12 @@ void Rolodex::add(const Card& myCard) {
 Card Rolodex::remove() {
     Card removedCard;
     removedCard = *cardPos;
-    ++cardPos;
+    cardPos = cardList.erase(cardPos);
+    //++cardPos;
     if (cardPos == cardList.end()) {
         cardPos = cardList.begin();
     }
-    cardList.remove(removedCard);
+    //cardList.remove(removedCard);
     return removedCard;
 }
 
