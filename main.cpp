@@ -62,6 +62,40 @@ int main() {
     currentCard->show(os);
     cout << endl;
     
+    cout << "Searches" << endl;
+    
+    bool found = false;
+    
+    found = rolo.search("Proverb", "Jewel");
+    
+    if (found) {
+        cout << "found" << endl;
+        *currentCard = rolo.getCurrentCard();
+        currentCard->show(os);
+        cout << endl;
+    }
+    
+    found = rolo.search("Coors", "Adolph");
+    
+    if (found) {
+        cout << "found" << endl;
+        *currentCard = rolo.getCurrentCard();
+        currentCard->show(os);
+        cout << endl;
+    }
+    
+    found = rolo.search("Pipisquee", "Fernando");
+    
+    if (found) {
+        cout << "found" << endl;
+        *currentCard = rolo.getCurrentCard();
+        currentCard->show(os);
+        cout << endl;
+    }
+    
+    
+    
+    
     for (int i = 0; i < 12; i++) {
         *currentCard = rolo.flip();
         

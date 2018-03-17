@@ -9,7 +9,6 @@
 #ifndef Rolodex_h
 #define Rolodex_h
 
-#include <stdio.h>
 #include <list>
 #include "Card.h"
 
@@ -25,6 +24,9 @@ public:
     const Card getCurrentCard();
     
     const Card flip();
+    
+    //last name, first name
+    bool search(const string&, const string&);
     
     void show(ostream& os);
     
