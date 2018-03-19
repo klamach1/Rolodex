@@ -4,12 +4,12 @@
 #include "Rolodex.h"
 
 //menu function prototypes
-void view(Rolodex& rolo);
-void listRolodex(Rolodex& rolo);
-void flip(Rolodex& rolo);
+void view(Rolodex& rolo, ostream& os);
+void listRolodex(Rolodex& rolo, ostream& os);
+void flip(Rolodex& rolo, ostream& os);
 void add(Rolodex& rolo);
-void remove(Rolodex& rolo);
-void search(Rolodex& rolo);
+void remove(Rolodex& rolo, ostream& os);
+void search(Rolodex& rolo, ostream& os);
 void loadData(Rolodex& rolo);
 
 
@@ -19,6 +19,8 @@ int main() {
     const int menuSize = 7;
     
     Rolodex rolo;
+    
+    ostream &os = cout;
     
     loadData(rolo);
     
@@ -38,22 +40,22 @@ int main() {
         
         switch (menuInput) {
             case 0:
-                listRolodex(rolo);
+                listRolodex(rolo, os);
                 break;
             case 1:
-                view(rolo);
+                view(rolo, os);
                 break;
             case 2:
-                flip(rolo);
+                flip(rolo, os);
                 break;
             case 3:
                 add(rolo);
                 break;
             case 4:
-                remove(rolo);
+                remove(rolo, os);
                 break;
             case 5:
-                search(rolo);
+                search(rolo, os);
                 break;
             case 6:
                 return 0;
@@ -80,9 +82,7 @@ void loadData(Rolodex& rolo) {
         rolo.add(Card("Fred", "Milton",    "Sales", "12 Freedom Way Nashua, NH", "555-9981"));
 }
 
-void view(Rolodex& rolo) {
-    
-    ostream &os = cout;
+void view(Rolodex& rolo, ostream& os) {
 
     Card currentCard = rolo.getCurrentCard();
     
@@ -90,19 +90,13 @@ void view(Rolodex& rolo) {
     
 }
 
-void listRolodex(Rolodex& rolo) {
-    
-    ostream &os = cout;
+void listRolodex(Rolodex& rolo, ostream& os) {
     
     rolo.show(os);
     
 }
 
-void flip(Rolodex& rolo) {
-    
-    ostream &os = cout;
-    
-    //Card myCard;
+void flip(Rolodex& rolo, ostream& os) {
     
     Card currentCard = rolo.flip();
         
@@ -114,13 +108,11 @@ void add(Rolodex& rolo) {
     std::cout << "Feature coming soon" << endl;
 }
 
-void remove(Rolodex& rolo) {
+void remove(Rolodex& rolo, ostream& os) {
     
     char input;
     
     std::cout << "Are you sure you want to remove this card (y/N)?"  << endl;
-    
-    ostream &os = cout;
     
     Card currentCard = rolo.getCurrentCard();
     
@@ -138,11 +130,16 @@ void remove(Rolodex& rolo) {
 }
     
 
-void search(Rolodex& rolo) {
-    
-    ostream &os = cout;
+void search(Rolodex& rolo, ostream& os) {
+
     bool found = false;
-    found = rolo.search("Pipisquee", "Fernando");
+    string name[2];
+    cout << "Enter a first naee and last name to search" << endl;
+    
+    cin >> name[0];
+    cin >> name[1];
+    
+    found = rolo.search(name[1], name[0]);
     Card currentCard;
     
     if (found) {
