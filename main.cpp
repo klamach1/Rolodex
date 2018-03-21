@@ -1,9 +1,24 @@
+//
+// main.cpp
+// Created by Chris Lawrence 3/10/18
+//
+// this module presents the user interface
+// to a Rolodex.  It creates a Rolodex object
+// and loads the initial data set.  It then presents an
+// interactive menu that allows the user to
+// view the current card, flip to the next card and view,
+// list the entire contents ofd the Rolodex, add a new Card,
+// remove the current card, and search for a card by first and
+// last name.
+
+
 #include <iostream>
 
 #include "Card.h"
 #include "Rolodex.h"
 
 //menu function prototypes
+//see definitions for comments
 void view(Rolodex& rolo, ostream& os);
 void listRolodex(Rolodex& rolo, ostream& os);
 void flip(Rolodex& rolo, ostream& os);
@@ -16,20 +31,24 @@ void loadData(Rolodex& rolo);
 int main() {
     
     int menuInput = 0;
+    //set our menu size
     const int menuSize = 7;
     
     Rolodex rolo;
     
+    //output stream tied to console out for display
     ostream &os = cout;
     
+    //load the default data
     loadData(rolo);
     
     //quit will always be the last command in the menu
     string menuCommands[] = {"List", "View", "Flip", "Add", "Remove", "Search", "Quit"};
     
+    //greet the user
     std::cout << "Hello Rolodex User - Please choose a command by typing the number:" << std::endl;
     
-    //quit will always be the last command in the menu
+    //display the menu and prompts for entry
     while (menuInput != menuSize-1) {
         for (int i = 0; i < menuSize; ++i) {
             std::cout << i << " - " << menuCommands[i] << std::endl;
@@ -37,6 +56,8 @@ int main() {
         
         std::cout << "Enter your choice:";
         std::cin >> menuInput;
+        
+        //clear the newline to prevent unexpected menu command behavior
         std::cin.get();
         
         switch (menuInput) {
@@ -70,6 +91,8 @@ int main() {
     return 0;
 }
 
+//load the default data into the Rolodex
+//this function could be refactored later to support file-based storage
 void loadData(Rolodex& rolo) {
         rolo.add(Card("Tony", "Hansen", "Writer", "12 E. St. NY, NY 33333", "555-9999"));
         rolo.add(Card("Jon", "Smyth", "Computer Hardware", "CMU Computer Services Pittsburgh, PA", "555-1324"));
@@ -83,6 +106,8 @@ void loadData(Rolodex& rolo) {
         rolo.add(Card("Fred", "Milton",    "Sales", "12 Freedom Way Nashua, NH", "555-9981"));
 }
 
+//function to view the current card in the Rolodex
+//takes the Rolodex and output stream by reference
 void view(Rolodex& rolo, ostream& os) {
 
     Card currentCard = rolo.getCurrentCard();
@@ -91,12 +116,16 @@ void view(Rolodex& rolo, ostream& os) {
     
 }
 
+//function to list the contents of the Rolodex
+//takes the Rolodex and output stream by reference
 void listRolodex(Rolodex& rolo, ostream& os) {
     
     rolo.show(os);
     
 }
 
+//function to move to the next card and display it
+//takes the Rolodex and output stream by reference
 void flip(Rolodex& rolo, ostream& os) {
     
     Card currentCard = rolo.flip();
@@ -105,6 +134,9 @@ void flip(Rolodex& rolo, ostream& os) {
     
 }
 
+//function to add new card by collecting user input
+//takes the Rolodex by reference
+//uses std::getline to capture full line input as a single string
 void add(Rolodex& rolo) {
     string response;
     Card newCard = Card();
@@ -128,16 +160,20 @@ void add(Rolodex& rolo) {
 }
 
 
-
+//function to remove current card
+//takes the Rolodex and outputstream by reference
+//displays the current card and prompts the user
+//for confirmation
+//if affirmative confirmation is not received, card is not removed
+//takes the Rolodex by reference
 void remove(Rolodex& rolo, ostream& os) {
     
     char input;
     
-    std::cout << "Are you sure you want to remove this card (y/N)?"  << endl;
+    std::cout << "Are you sure you want to remove this card (y/N)?"  << endl << 'N';
     
-    Card currentCard = rolo.getCurrentCard();
-    
-    currentCard.show(os);
+    //output the current card
+    view(rolo, os);
     
     std::cin >> input;
     
@@ -155,7 +191,7 @@ void search(Rolodex& rolo, ostream& os) {
 
     bool found = false;
     string name[2];
-    cout << "Enter a first naee and last name to search" << endl;
+    cout << "Enter a first name and last name to search" << endl;
     
     cin >> name[0];
     cin >> name[1];
@@ -165,8 +201,8 @@ void search(Rolodex& rolo, ostream& os) {
     
     if (found) {
         cout << "found" << endl;
-        currentCard = rolo.getCurrentCard();
-        currentCard.show(os);
+        //output the current card
+        view(rolo, os);
         cout << endl;
     }
 }

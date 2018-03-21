@@ -3,26 +3,21 @@
 //  Rolodex
 //
 //  Created by Chris Lawrence on 3/16/18.
-//  Copyright © 2018 Chris Lawrence. All rights reserved.
+//  See header file for function descriptions
 //
 
-//TODO: remove
-//for debug
-#include <iostream>
+
 #include "Rolodex.h"
 #include <list>
 
 Rolodex::Rolodex() {
+    //set the Iterator to the head of the list
     cardPos = cardList.begin();
 }
-/*
-void Rolodex::add(const Card& myCard) {
-    cardList.insert(cardPos, myCard);
-    --cardPos;
-    cardList.sort();
-}
- */
 
+// add card in the proper position in the sort order
+// rather than just inserting and calling the sort function
+// it should prove more efficient over time
 void Rolodex::add(const Card& myCard) {
     
     bool inserted = false;
@@ -32,21 +27,26 @@ void Rolodex::add(const Card& myCard) {
     string insertKey = myCard.getLastName()+myCard.getFirstName();
     
     //check for current position name match or empty list
+    //if either is true, just insert the card
     if (cardList.empty() || cardPos->getLastName()+cardPos->getFirstName() == insertKey) {
         cardList.insert(cardPos, myCard);
         --cardPos;
     }
     else {
+        
+        //need a temp iterator to cycle through the list
         std::list<Card>::iterator it;
         
         //if the value to insert is > the current value
-        //start the comparison at beginning, otherwise start at the current
+        //start the comparisons at the head of list,
+        // otherwise start at the current position
 
         insertKey > cardPos->getLastName()+cardPos->getFirstName()
         ? it = cardPos : it= cardList.begin();
 
         //the goal is to find the first value that is greater than the
         //value to insert and insert prior to that value
+        //loop through until the card has been inserted
         while (!inserted) {
             //have to check for cardList.end first or there is an access violation
             if (it == cardList.end() || insertKey < it->getLastName()+it->getFirstName()) {
@@ -60,9 +60,13 @@ void Rolodex::add(const Card& myCard) {
 }
 
 Card Rolodex::remove() {
+    //create a card object to hold the card that will be
+    //removed and returned
     Card removedCard;
     removedCard = *cardPos;
+    //erase returns a new iterator at the next position
     cardPos = cardList.erase(cardPos);
+    //if it was the last card, go to the first card
     if (cardPos == cardList.end()) {
         cardPos = cardList.begin();
     }
@@ -77,6 +81,7 @@ const Card Rolodex::flip() {
     
     ++cardPos;
     
+    //if it was the last card, go to the first card
     if (cardPos == cardList.end()) {
         cardPos = cardList.begin();
     }
@@ -92,7 +97,13 @@ bool Rolodex::search(const string& lastName, const string& firstName) {
         return true;
     }
     
+    //temp iterator
     std::list<Card>::iterator it;
+    
+    //same concept here that is used in the add function
+    //if the current position is beyond the search input,
+    //search from the beginning to the current position
+    //else search from the current position to the end
     
     if (cardPos->getLastName()+cardPos->getFirstName() > lastName+firstName) {
         for (it=cardList.begin();it!=cardPos;++it) {
@@ -117,6 +128,9 @@ bool Rolodex::search(const string& lastName, const string& firstName) {
 }
 
 void Rolodex::show(ostream& os) {
+    //temp iterator to loop through the list
+    //and call show on each Card
+    //put a blank line after each card for readability
     std::list<Card>::iterator it;
     for (it=cardList.begin();it!=cardList.end();++it) {
         it->show(os);

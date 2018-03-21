@@ -1,6 +1,7 @@
 //
 // Created by Chris Lawrence on 3/13/18.
-//
+// Implementation of Card Class
+// See header for comments
 
 #include "Card.h"
 
@@ -57,6 +58,7 @@ ostream &operator<<(ostream &os, const Card &card) {
     return os;
 }
 
+//test to see if lastname + firstname string is less than input object
 bool Card::operator<(const Card &rhs) const {
     if (lastName + firstName < rhs.lastName + rhs.firstName) {
         return true;
@@ -66,12 +68,15 @@ bool Card::operator<(const Card &rhs) const {
     }
 }
 
-
+//compare all attributes to determine equality
 bool Card::operator==(const Card &rhs) const {
     return (lastName == rhs.lastName
             && firstName == rhs.firstName
-            && address == rhs.address);
+            && address == rhs.address
+            && occupation == rhs.occupation
+            && phoneNumber == rhs.phoneNumber);
 }
+
 
 bool Card::operator!=(const Card &rhs) const {
     return !(*this == rhs);
