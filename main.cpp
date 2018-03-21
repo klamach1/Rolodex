@@ -37,6 +37,7 @@ int main() {
         
         std::cout << "Enter your choice:";
         std::cin >> menuInput;
+        std::cin.get();
         
         switch (menuInput) {
             case 0:
@@ -105,8 +106,28 @@ void flip(Rolodex& rolo, ostream& os) {
 }
 
 void add(Rolodex& rolo) {
-    std::cout << "Feature coming soon" << endl;
+    string response;
+    Card newCard = Card();
+    std::cout << "Please enter the last name:" << endl;
+    std::getline(std::cin, response);
+    newCard.setFirstName(response);
+    std::cout << "Please enter the last name:" << endl;
+    std::getline(std::cin, response);
+    newCard.setLastName(response);
+    std::cout << "Please enter the address:" << endl;
+    std::getline(std::cin, response);
+    newCard.setAddress(response);
+    std::cout << "Please enter the occupation:" << endl;
+    std::getline(std::cin, response);
+    newCard.setOccupation(response);
+    std::cout << "Please enter the phone number (xxx) xxx-xxxx:" << endl;
+    std::getline(std::cin, response);
+    newCard.setPhoneNumber(response);
+    rolo.add(newCard);
+    std::cout << "Card added" << endl;
 }
+
+
 
 void remove(Rolodex& rolo, ostream& os) {
     
