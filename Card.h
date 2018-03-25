@@ -12,7 +12,7 @@ using namespace std;
 #ifndef Card_h
 #define Card_h
 
-#include <stdio.h>
+
 #include <ostream>
 
 class Card {

@@ -91,39 +91,44 @@ const Card Rolodex::flip() {
 
 bool Rolodex::search(const string& lastName, const string& firstName) {
     
+	//assume not found
+	bool found = false;
+
     //check for current position match
     if (cardPos->getLastName() == lastName
         && cardPos->getFirstName() == firstName) {
-        return true;
+        found = true;
     }
-    
-    //temp iterator
-    std::list<Card>::iterator it;
-    
-    //same concept here that is used in the add function
-    //if the current position is beyond the search input,
-    //search from the beginning to the current position
-    //else search from the current position to the end
-    
-    if (cardPos->getLastName()+cardPos->getFirstName() > lastName+firstName) {
-        for (it=cardList.begin();it!=cardPos;++it) {
-            if (it->getLastName() == lastName
-                && it->getFirstName() == firstName) {
-                cardPos = it;
-                return true;
-            }
-        }
-    } else {
-        for (it=cardList.end();it!=cardPos;--it) {
-            if (it->getLastName() == lastName
-                && it->getFirstName() == firstName) {
-                cardPos = it;
-                return true;
-            }
-        }
-    }
-    //if we made it here, no match
-    return false;
+	else {
+
+		//temp iterator
+		std::list<Card>::iterator it;
+
+		lastName + firstName > cardPos->getLastName() + cardPos->getFirstName()
+			? it = next(cardPos,1) : it = cardList.begin();
+
+		// if the current position is beyond the search input,
+		// search from the beginning 
+		// else search from the current position
+
+
+		do {
+			if (it->getLastName() == lastName
+				&& it->getFirstName() == firstName) {
+				cardPos = it;
+				found = true;
+			}
+			else {
+				++it;
+			}
+		// stop the search on a match, the end of the list,
+		// or if the search string is no longer greater than 
+		// the current string
+		} while (!found && it != cardList.end() && 
+			lastName + firstName >= it->getLastName() + it->getFirstName());
+ 	}
+
+    return found;
    
 }
 
