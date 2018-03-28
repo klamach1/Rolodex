@@ -1,0 +1,421 @@
+
+C:\Users\Christopher_Lawrence\source\repos\Rolodex\Debug>rolodex < runner.txt
+Hello Rolodex User - Please choose a command by typing the number:
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+firstName: Adolf
+lastName: Coors
+address: Boston MA
+occupation: Beer Manufacturer
+phoneNumber: 555-2337
+
+firstName: Tony
+lastName: Hansen
+address: 12 E. St. NY, NY 33333
+occupation: Writer
+phoneNumber: 555-9999
+
+firstName: Alonza
+lastName: Heard
+address: 123 Anyplace Ave Malden, MA
+occupation: Mechanic
+phoneNumber: 555-5678
+
+firstName: Alan
+lastName: Lupine
+address: 1 Bigelow Ave. Lawrence, MA
+occupation: Vet
+phoneNumber: 555-7654
+
+firstName: Fred
+lastName: Milton
+address: 12 Freedom Way Nashua, NH
+occupation: Sales
+phoneNumber: 555-9981
+
+firstName: Seymour
+lastName: Papert
+address: MIT
+occupation: Lego Professor
+phoneNumber: 555-1111
+
+firstName: Jewel
+lastName: Proverb
+address: 34 Washington St. Waltham, MA
+occupation: Landscaper
+phoneNumber: 555-3333
+
+firstName: Paul
+lastName: Revere
+address: 45 Commonwealth Ave. Boston, MA
+occupation: Radical Revolutionary
+phoneNumber: 555-1776
+
+firstName: Jen
+lastName: Reyes
+address: 325 Oak Rd Wilmington, MA
+occupation: Graphic artist
+phoneNumber: 555-4950
+
+firstName: Jon
+lastName: Smyth
+address: CMU Computer Services Pittsburgh, PA
+occupation: Computer Hardware
+phoneNumber: 555-1324
+
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+Enter a first name and last name to search
+found
+firstName: Alonza
+lastName: Heard
+address: 123 Anyplace Ave Malden, MA
+occupation: Mechanic
+phoneNumber: 555-5678
+
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+firstName: Alonza
+lastName: Heard
+address: 123 Anyplace Ave Malden, MA
+occupation: Mechanic
+phoneNumber: 555-5678
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+firstName: Alan
+lastName: Lupine
+address: 1 Bigelow Ave. Lawrence, MA
+occupation: Vet
+phoneNumber: 555-7654
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+Enter a first name and last name to search
+found
+firstName: Jon
+lastName: Smyth
+address: CMU Computer Services Pittsburgh, PA
+occupation: Computer Hardware
+phoneNumber: 555-1324
+
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+Are you sure you want to remove this card (y/N)?
+firstName: Jon
+lastName: Smyth
+address: CMU Computer Services Pittsburgh, PA
+occupation: Computer Hardware
+phoneNumber: 555-1324
+Card removed
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+firstName: Adolf
+lastName: Coors
+address: Boston MA
+occupation: Beer Manufacturer
+phoneNumber: 555-2337
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+Please enter the first name:
+Please enter the last name:
+Please enter the address:
+Please enter the occupation:
+Please enter the phone number (xxx) xxx-xxxx:
+Card added
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+firstName: Matthew
+lastName: Williams
+address: 69 Main St, Action, MA
+occupation: Teacher
+phoneNumber: 555-9330
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+firstName: Adolf
+lastName: Coors
+address: Boston MA
+occupation: Beer Manufacturer
+phoneNumber: 555-2337
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+Are you sure you want to remove this card (y/N)?
+firstName: Adolf
+lastName: Coors
+address: Boston MA
+occupation: Beer Manufacturer
+phoneNumber: 555-2337
+Card removed
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+firstName: Tony
+lastName: Hansen
+address: 12 E. St. NY, NY 33333
+occupation: Writer
+phoneNumber: 555-9999
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+Please enter the first name:
+Please enter the last name:
+Please enter the address:
+Please enter the occupation:
+Please enter the phone number (xxx) xxx-xxxx:
+Card added
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+firstName: Jim
+lastName: Butler
+address: 33 Cedar Lane, Concord, MA
+occupation: Contractor
+phoneNumber: 555-8535
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+Enter a first name and last name to search
+found
+firstName: Jewel
+lastName: Proverb
+address: 34 Washington St. Waltham, MA
+occupation: Landscaper
+phoneNumber: 555-3333
+
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+firstName: Jewel
+lastName: Proverb
+address: 34 Washington St. Waltham, MA
+occupation: Landscaper
+phoneNumber: 555-3333
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+Are you sure you want to remove this card (y/N)?
+firstName: Jewel
+lastName: Proverb
+address: 34 Washington St. Waltham, MA
+occupation: Landscaper
+phoneNumber: 555-3333
+Card removed
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+firstName: Paul
+lastName: Revere
+address: 45 Commonwealth Ave. Boston, MA
+occupation: Radical Revolutionary
+phoneNumber: 555-1776
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+Please enter the first name:
+Please enter the last name:
+Please enter the address:
+Please enter the occupation:
+Please enter the phone number (xxx) xxx-xxxx:
+Card added
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+Please enter the first name:
+Please enter the last name:
+Please enter the address:
+Please enter the occupation:
+Please enter the phone number (xxx) xxx-xxxx:
+Card added
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+firstName: Dan
+lastName: Butler
+address: 68 Willow St, Westford, MA
+occupation: Chauffeur
+phoneNumber: 555-8493
+
+firstName: Jim
+lastName: Butler
+address: 33 Cedar Lane, Concord, MA
+occupation: Contractor
+phoneNumber: 555-8535
+
+firstName: Jim
+lastName: Butler
+address: 22 Minuteman St, Lexington, MA
+occupation: Consultant
+phoneNumber: 555-4422
+
+firstName: Tony
+lastName: Hansen
+address: 12 E. St. NY, NY 33333
+occupation: Writer
+phoneNumber: 555-9999
+
+firstName: Alonza
+lastName: Heard
+address: 123 Anyplace Ave Malden, MA
+occupation: Mechanic
+phoneNumber: 555-5678
+
+firstName: Alan
+lastName: Lupine
+address: 1 Bigelow Ave. Lawrence, MA
+occupation: Vet
+phoneNumber: 555-7654
+
+firstName: Fred
+lastName: Milton
+address: 12 Freedom Way Nashua, NH
+occupation: Sales
+phoneNumber: 555-9981
+
+firstName: Seymour
+lastName: Papert
+address: MIT
+occupation: Lego Professor
+phoneNumber: 555-1111
+
+firstName: Paul
+lastName: Revere
+address: 45 Commonwealth Ave. Boston, MA
+occupation: Radical Revolutionary
+phoneNumber: 555-1776
+
+firstName: Jen
+lastName: Reyes
+address: 325 Oak Rd Wilmington, MA
+occupation: Graphic artist
+phoneNumber: 555-4950
+
+firstName: Matthew
+lastName: Williams
+address: 69 Main St, Action, MA
+occupation: Teacher
+phoneNumber: 555-9330
+
+0 - List
+1 - View
+2 - Flip
+3 - Add
+4 - Remove
+5 - Search
+6 - Quit
+Enter your choice:
+
+C:\Users\Christopher_Lawrence\source\repos\Rolodex\Debug>

@@ -13,6 +13,7 @@
 
 
 #include <iostream>
+#include <sstream>
 
 #include "Card.h"
 #include "Rolodex.h"
@@ -29,15 +30,17 @@ void loadData(Rolodex& rolo);
 
 
 int main() {
-    
-    int menuInput = 0;
+
+	ostringstream osMenu;
+	string menuDisplay;
+    int menuInput = -1;
     //set our menu size
     const int menuSize = 7;
     
     Rolodex rolo;
-    
+
     //output stream tied to console out for display
-    ostream &os = cout;
+    ostream &os = std::cout;
     
     //load the default data
     loadData(rolo);
@@ -45,45 +48,50 @@ int main() {
     //quit will always be the last command in the menu
     string menuCommands[] = {"List", "View", "Flip", "Add", "Remove", "Search", "Quit"};
     
+	for (int i = 0; i < menuSize; ++i) {
+		osMenu << i << " - " << menuCommands[i] << endl;
+	}
+
+	menuDisplay = osMenu.str();
+
     //greet the user
     std::cout << "Hello Rolodex User - Please choose a command by typing the number:" << std::endl;
     
     //display the menu and prompts for entry
     while (menuInput != menuSize-1) {
-        for (int i = 0; i < menuSize; ++i) {
-            std::cout << i << " - " << menuCommands[i] << std::endl;
-        }
-        
-        std::cout << "Enter your choice:";
-        std::cin >> menuInput;
-        
-        //clear the newline to prevent unexpected menu command behavior
-        std::cin.get();
-        
-        switch (menuInput) {
-            case 0:
-                listRolodex(rolo, os);
-                break;
-            case 1:
-                view(rolo, os);
-                break;
-            case 2:
-                flip(rolo, os);
-                break;
-            case 3:
-                add(rolo);
-                break;
-            case 4:
-                remove(rolo, os);
-                break;
-            case 5:
-                search(rolo, os);
-                break;
-            case 6:
-                return 0;
-            default:
-                break;
-        }
+
+
+		std::cout << menuDisplay;
+        std::cout << "Enter your choice:" << endl;
+		std::cin >> menuInput;
+
+			//clear the newline to prevent unexpected menu command behavior
+			std::cin.get();
+
+			switch (menuInput) {
+			case 0:
+				listRolodex(rolo, os);
+				break;
+			case 1:
+				view(rolo, os);
+				break;
+			case 2:
+				flip(rolo, os);
+				break;
+			case 3:
+				add(rolo);
+				break;
+			case 4:
+				remove(rolo, os);
+				break;
+			case 5:
+				search(rolo, os);
+				break;
+			case 6:
+				return 0;
+			default:
+				break;
+			}
 
 
     }
@@ -140,7 +148,7 @@ void flip(Rolodex& rolo, ostream& os) {
 void add(Rolodex& rolo) {
     string response;
     Card newCard = Card();
-    std::cout << "Please enter the last name:" << endl;
+    std::cout << "Please enter the first name:" << endl;
     std::getline(std::cin, response);
     newCard.setFirstName(response);
     std::cout << "Please enter the last name:" << endl;
@@ -170,19 +178,20 @@ void remove(Rolodex& rolo, ostream& os) {
     
     char input;
     
-    std::cout << "Are you sure you want to remove this card (y/N)?"  << endl << 'N';
-    
-    //output the current card
-    view(rolo, os);
-    
+	//output the current card
+	view(rolo, os);
+	
+	//confirm removal
+	std::cout << "Are you sure you want to remove this card (y/N)?"  << endl;
+
     std::cin >> input;
     
     if (input == 'y' || input == 'Y') {
         rolo.remove();
-        std::cout << "Card removed";
+        std::cout << "Card removed" << endl;
     }
     else {
-        std::cout << "Card not removed";
+        std::cout << "Card not removed" << endl;
     }
 }
     
@@ -191,20 +200,22 @@ void search(Rolodex& rolo, ostream& os) {
 
     bool found = false;
     string name[2];
-    cout << "Enter a first name and last name to search" << endl;
+	std::cout << "Enter a first name and last name to search" << endl;
     
-    cin >> name[0];
-    cin >> name[1];
+	std::cin >> name[0];
+	std::cin >> name[1];
     
     found = rolo.search(name[1], name[0]);
     Card currentCard;
     
     if (found) {
-        cout << "found" << endl;
         //output the current card
         view(rolo, os);
-        cout << endl;
-    }
+		std::cout << endl;
+	}
+	else {
+		std::cout << "Card not found" << endl;
+	}
 }
     
 
